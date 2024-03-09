@@ -1,7 +1,7 @@
-from handler import hello
+from handler import test_function
 
 def main():
-    hello(None, None)
+    test_function(None, None)
 
 
 if __name__ == "__main__":

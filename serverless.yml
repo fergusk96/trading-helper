@@ -17,4 +17,4 @@ functions:
     events:
     - http:
         path: test
-        method: get 
+        method: get
