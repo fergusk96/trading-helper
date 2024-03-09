@@ -1,0 +1,20 @@
+org: osomonodev
+app: trading-helper
+service: trading-helper
+
+provider:
+  name: aws
+  runtime: python3.10
+  lambdaHashingVersion: 20201221
+  region: us-east-1
+  timeout: 10 # You set a timeout of 10 seconds for the functions
+  role: arn:aws:iam::878586529059:role/serverlessLabs # Enter your Arn role here
+  memorySize: 512
+
+functions:
+  first_function:
+    handler: handler.test_function
+    events:
+    - http:
+        path: test
+        method: get 
