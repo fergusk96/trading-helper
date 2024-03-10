@@ -1,5 +1,6 @@
 # Distribution / packaging
 .Python
+package-lock.json
 env/
 build/
 develop-eggs/
@@ -18,6 +19,7 @@ var/
 .python-version
 __pycache__/
 .vscode
+node_modules
 
 # Serverless directories
 .serverless

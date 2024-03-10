@@ -1,0 +1,11 @@
+{
+    "name": "trading-helper-project",
+    "version": "1.0.0",
+    "description": "A Serverless project using the Serverless Framework",
+    "author": "Your Name",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "serverless": "^3.0.0",
+        "serverless-python-requirements": "^6.0.0"
+        }
+  }
