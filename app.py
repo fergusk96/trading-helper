@@ -1,4 +1,4 @@
-from handler import test_function
+from src.handler import test_function
 
 def main():
     test_function(None, None)

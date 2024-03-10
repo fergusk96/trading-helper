@@ -1,5 +1,5 @@
 import json
-from functions.test_function import first_function
+from src.functions.function import first_function
 
 
 def test_function(event, context):

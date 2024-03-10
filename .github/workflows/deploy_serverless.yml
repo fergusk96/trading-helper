@@ -22,6 +22,8 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.9
+    - name: build application
+      run: make install test
 
     - name: Serverless Deploy
       uses: dhollerbach/actions.serverless-with-python-requirements@v2

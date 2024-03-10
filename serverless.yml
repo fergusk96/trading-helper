@@ -13,7 +13,7 @@ provider:
 
 functions:
   first_function:
-    handler: handler.test_function
+    handler: src.handler.test_function
     events:
     - http:
         path: test
