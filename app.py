@@ -1,7 +1,7 @@
-from src.handler import test_function
+from src.functions.user_functions import get_user
 
 def main():
-    test_function(None, None)
+    get_user(None)
 
 
 if __name__ == "__main__":

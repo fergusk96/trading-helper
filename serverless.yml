@@ -1,45 +1,47 @@
----
-org: osomonodev
-app: trading-helper
 service: trading-helper
-custom:
-  pythonRequirements:
-    dockerizePip: true
-plugins:
-  - serverless-python-requirements
+
 provider:
-  name: aws
-  runtime: python3.9
-  lambdaHashingVersion: 20201221
+  name: google
   stage: dev
-  region: us-east-1
-  timeout: 10
-  role: arn:aws:iam::878586529059:role/serverlessLabs
-  memorySize: 512
-resources:
-  Resources:
-    RDSCluster:
-          Type: AWS::RDS::DBCluster
-          Properties:
-              Engine: aurora-mysql
-              DatabaseName: tradinghelper
-              EngineVersion: 5.7.mysql_aurora.2.12.1
-              MasterUsername: serviceuser
-              MasterUserPassword: myawesomepassword
-              PreferredBackupWindow: 02:00-03:00
-              PreferredMaintenanceWindow: mon:03:00-mon:04:00
-    RDSInstance:
-      Type: AWS::RDS::DBInstance
-      Properties:
-        Engine: aurora-mysql
-        DBClusterIdentifier:
-          Ref: RDSCluster
-        DBInstanceClass: "db.t3.small"
+  runtime: python39
+  region: us-central1
+  project: 	trading-helper-419411
+  credentials: ${env:GOOGLE_CREDENTIALS}
+  # The GCF credentials can be a little tricky to set up. Luckily we've documented this for you here:
+  # https://serverless.com/framework/docs/providers/google/guide/credentials/
+  #
+  # the path to the credentials file needs to be absolute
+  # credentials: ~/.gcloud/keyfile.json
+
+frameworkVersion: '3'
+plugins:
+  - serverless-google-cloudfunctions
+
+# needs more granular excluding in production as only the serverless provider npm
+# package should be excluded (and not the whole node_modules directory)
+package:
+  exclude:
+    - infra/**
+    - app.py
+    - node_modules/**
+    - .gitignore
+    - .git/**
+    - .github/**
+    - .pre-commit-config.yaml
 
 functions:
-  first_function:
-    handler: src.handler.test_function
+  first:
+    handler: get_user
     events:
-      - http:
-          path: test
-          method: get
+      - http: true
+  # NOTE: the following uses an "event" event (pubSub event in this case).
+  # Please create the corresponding resources in the Google Cloud
+  # before deploying this service through Serverless
+  #second:
+  #  handler: event
+  #  events:
+  #    - event:
+  #        eventType: providers/cloud.pubsub/eventTypes/topic.publish
+  #        resource: projects/*/topics/my-topic
+# you can define resources, templates etc. the same way you would in a
+# Google Cloud deployment configuration

@@ -20,6 +20,10 @@ var/
 __pycache__/
 .vscode
 node_modules
+/infra/.terraform
+/infra/.terraform.lock.hcl
+/infra/terraform.tfstate
+/infra/terraform.tfstate.backup
 
 # Serverless directories
 .serverless

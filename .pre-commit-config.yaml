@@ -11,7 +11,7 @@ repos:
     - id: requirements-txt-fixer # sorts entries in requirements.txt.
 
 
--   repo: https://github.com/PyCQA/pylint
-    rev: v2.12.2
-    hooks:
-        - id: pylint
+# -   repo: https://github.com/PyCQA/pylint
+#     rev: v2.12.2
+#     hooks:
+#         - id: pylint
