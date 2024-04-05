@@ -16,7 +16,7 @@ jobs:
     - name: Decrypt secret
       run: ./.github/scripts/decrypt_secret.sh
       env:
-        SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}
+        DECRYPTION_KEY: ${{ secrets.DECRYPTION_KEY }}
     - name: serverless deploy
       uses: serverless/github-action@master
       with:
