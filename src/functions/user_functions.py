@@ -1,7 +1,6 @@
 from google.cloud import firestore
 
 
-
 def get_user(request):
   firestore_client = firestore.Client(database='trading-helper-gcp')
   user_id = request.args.get('user_id')

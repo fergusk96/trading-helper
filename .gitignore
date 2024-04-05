@@ -1,5 +1,6 @@
 # Distribution / packaging
 .Python
+app.py
 package-lock.json
 env/
 build/
@@ -18,13 +19,12 @@ var/
 *.egg
 .python-version
 __pycache__/
+.vscode/
 node_modules
 /infra/.terraform
 /infra/.terraform.lock.hcl
 /infra/terraform.tfstate
 /infra/terraform.tfstate.backup
-.vscode
-.vscode/settings.json
 
 # Serverless directories
 .serverless
