@@ -55,8 +55,10 @@ class Trade:
         self.profit = data["profit"]
         self.sell_price = data["sell_price"]
         self.target_price = data["target_price"]
-        self.trade_resolution_time = datetime.fromtimestamp(
-            data["trade_resolution_time"].timestamp()
-        ) if data["trade_resolution_time"] is not None else None
+        self.trade_resolution_time = (
+            datetime.fromtimestamp(data["trade_resolution_time"].timestamp())
+            if data["trade_resolution_time"] is not None
+            else None
+        )
         self.trade_status = data["trade_status"]
         return self

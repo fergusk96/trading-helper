@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class TradeStatus(Enum):
     PENDING = 0
     OPEN = 1
