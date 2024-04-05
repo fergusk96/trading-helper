@@ -30,8 +30,8 @@ package:
     - .pre-commit-config.yaml
 
 functions:
-  first:
-    handler: get_user
+  get_trade_by_id:
+    handler: get_trade_by_id
     events:
       - http: true
   # NOTE: the following uses an "event" event (pubSub event in this case).

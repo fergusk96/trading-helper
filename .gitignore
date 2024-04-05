@@ -1,6 +1,5 @@
 # Distribution / packaging
 .Python
-app.py
 package-lock.json
 env/
 build/
@@ -25,6 +24,7 @@ node_modules
 /infra/.terraform.lock.hcl
 /infra/terraform.tfstate
 /infra/terraform.tfstate.backup
+app.py
 
 # Serverless directories
 .serverless

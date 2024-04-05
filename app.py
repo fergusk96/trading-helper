@@ -1,7 +1,9 @@
-from src.functions.user_functions import get_user
+from src.services.trade_retrieval_service import TradeRetrievalService
+
 
 def main():
-    get_user(None)
+    trade_retrieval_service = TradeRetrievalService()
+    trade_retrieval_service.get_trade_by_id("9KxOnAWTUY1U0eIJuII7")
 
 
 if __name__ == "__main__":
