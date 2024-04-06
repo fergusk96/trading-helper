@@ -41,24 +41,25 @@ class Trade:
             "trade_status": self.trade_status.value,
         }
 
-    @classmethod
-    def from_dict(self, data: dict):
-        self.trade_id = data["trade_id"]
-        self.coin = data["coin"]
-        self.creation_time = datetime.fromtimestamp(data["creation_time"].timestamp())
-        self.current_price = data["current_price"]
-        self.last_evaluated_time = (
-            datetime.fromtimestamp(data["last_evaluated_time"].timestamp())
-            if data["last_evaluated_time"] is not None
-            else None
+    @staticmethod
+    def from_dict(data: dict):
+        return Trade(
+            trade_id=data["trade_id"],
+            coin=data["coin"],
+            creation_time=datetime.fromtimestamp(data["creation_time"].timestamp()),
+            current_price=data["current_price"],
+            last_evaluated_time=(
+                datetime.fromtimestamp(data["last_evaluated_time"].timestamp())
+                if data["last_evaluated_time"] is not None
+                else None
+            ),
+            profit=data["profit"],
+            sell_price=data["sell_price"],
+            target_price=data["target_price"],
+            trade_resolution_time=(
+                datetime.fromtimestamp(data["trade_resolution_time"].timestamp())
+                if data["trade_resolution_time"] is not None
+                else None
+            ),
+            trade_status=TradeStatus(data["trade_status"]),
         )
-        self.profit = data["profit"]
-        self.sell_price = data["sell_price"]
-        self.target_price = data["target_price"]
-        self.trade_resolution_time = (
-            datetime.fromtimestamp(data["trade_resolution_time"].timestamp())
-            if data["trade_resolution_time"] is not None
-            else None
-        )
-        self.trade_status = data["trade_status"]
-        return self
