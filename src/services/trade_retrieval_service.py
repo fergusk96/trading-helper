@@ -1,10 +1,11 @@
-from flask import Response
-from src.repositories.trades_repository import TradesRepository
-from src.entitites.trade import Trade
-from src.exceptions.trade_not_found_exception import TradeNotFoundException
-
 import json
 from datetime import datetime
+
+from flask import Response
+
+from src.entitites.trade import Trade
+from src.exceptions.trade_not_found_exception import TradeNotFoundException
+from src.repositories.trades_repository import TradesRepository
 
 
 class TradeRetrievalService:
@@ -25,7 +26,7 @@ class TradeRetrievalService:
 
 
 class DateTimeEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, datetime):
-            return obj.isoformat()
-        return json.JSONEncoder.default(self, obj)
+    def default(self, o):
+        if isinstance(o, datetime):
+            return o.isoformat()
+        return json.JSONEncoder.default(self, o)

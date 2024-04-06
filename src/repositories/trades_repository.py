@@ -1,9 +1,7 @@
 from google.cloud import firestore
+
 from src.entitites.trade import Trade
 from src.exceptions.trade_not_found_exception import TradeNotFoundException
-from firesql.firebase import FirebaseClient
-from firesql.sql import FireSQL
-from firesql.sql.doc_printer import DocPrinter
 
 
 class TradesRepository:
