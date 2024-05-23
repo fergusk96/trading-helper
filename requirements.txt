@@ -1,2 +1,4 @@
 Flask==2.3.3
 google-cloud-firestore
+google-cloud-logging
+python-binance

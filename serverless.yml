@@ -30,8 +30,20 @@ package:
     - .pre-commit-config.yaml
 
 functions:
+  execute_workflow_start:
+    handler: execute_workflow_start
+    events:
+      - event:
+            eventType: providers/cloud.pubsub/eventTypes/topic.publish
+            resource: projects/trading-helper-419411/topics/scheduler-topic
   get_trade_by_id:
     handler: get_trade_by_id
+    events:
+      - http: true
+  schedule_trade:
+    vpc: projects/trading-helper-419411/locations/us-central1/connectors/cloud-functions-connector
+    vpcEgress: ALL_TRAFFIC
+    handler: schedule_trade
     events:
       - http: true
   # NOTE: the following uses an "event" event (pubSub event in this case).
