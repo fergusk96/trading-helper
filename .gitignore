@@ -28,3 +28,5 @@ app.py
 
 # Serverless directories
 .serverless
+.vscode/settings.json
+app.py
